@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<link rel='stylesheet' href='/stylesheets/style.css' />
+<head>
+    <title>Player - Add Position</title>
+</head>
+<body>
+<h1>Add New Player</h1>
+<form action="/player/associate_position" method="get">
+    <input type="hidden" id="player_id" name="player_id" value="<%= player.player_id%>">
+
+    Add Position:
+    <input name="position">
+    <br>
+    <input type="submit">
+    <br>
+    Current Position(s):
+    <br>
+    <% for(var i = 0; i < positions.length; i++){%>
+    <%= positions[i].position %>
+    <br>
+    <% } %>
+</form>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<link rel='stylesheet' href='/stylesheets/style.css' />
+<head>
+    <title>Team - Update</title>
+</head>
+<body>
+<h1>Update Team</h1>
+
+<form action="/team/update" method="get">
+    <input type="hidden" id="team_name" name="team_name" value="<%= team.team_name %>">
+
+    City: <input id ="city" name="city" value = "<%= team.city%>">
+    <br>
+
+    League:
+    <select name="league">
+
+        <% var selected1 = '';
+        var selected2 = '';
+        team.league == 'American League' ? selected1 = 'selected' : selected2 = 'selected';%>
+        <option value="American League" <%= selected1 %>>
+            American League
+        </option>
+        <option value="National League" <%= selected2 %>>
+            National League
+        </option>
+    </select>
+    <br>
+    Division:
+    <select name="division">
+        <% var selected1 = '';
+        var selected2 = '';
+        var selected3 = '';
+        if(team.division == 'East'){
+            selected1 = 'selected';
+        }else{
+            team.division == 'Central' ? selected2 = 'selected' : selected3 = 'selected';
+        }%>
+        <option value="East" <%= selected1 %>> East </option>
+        <option value="Central" <%= selected2 %>> Central </option>
+        <option value="West" <%= selected3 %>> West </option>
+    </select>
+    <br>
+
+    <input type="submit">
+</form>
+</body>
+</html>

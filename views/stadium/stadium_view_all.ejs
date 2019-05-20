@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<link rel='stylesheet' href='/stylesheets/style.css' />
+<head>
+    <title>Stadium - View All</title>
+</head>
+<body>
+<a href="../">Home</a> |
+<a href="../team/all">Teams</a> |
+<a href="">Stadiums</a> |
+<a href="../player/all">Players</a> |
+<a href="../game/all">Games</a>
+
+<h1>Stadiums</h1>
+
+<% if(locals.was_successful) { %>
+<div class="col-md-12">
+    <div id="message" class="alert alert-success col-md-4">
+        Stadium ID <%= stadium_id %> was successfully deleted.
+        <br>
+    </div>
+</div>
+<% }else{ %>
+<div class="col-md-12">
+    <div id="message" class="alert alert-danger col-md-4">
+        Failed to delete stadium ID <%= stadium_id %>.
+        <br>
+    </div>
+</div>
+<% } %>
+
+
+<a href="/stadium/add">Add New Stadium</a>
+<br>
+<table border="1">
+    <tr>
+        <th>Name</th>
+        <th>Team</th>
+        <th>Address</th>
+        <th>Actions</th>
+    </tr>
+
+    <% for(var i = 0; i < stadiums.length; i++) {%>
+    <tr>
+        <td><%= stadiums[i].stadium_name %></td>
+        <td><%= stadiums[i].team_name %></td>
+        <td><%= stadiums[i].address %></td>
+        <td>
+            <a href="/stadium/edit/?stadium_id=<%= stadiums[i].stadium_id %>">
+                Edit
+            </a>
+            <a href="/stadium/delete/?stadium_id=<%= stadiums[i].stadium_id %>">
+                Delete
+            </a>
+        </td>
+    </tr>
+    <% } %>
+</table>
+</body>
+</html>

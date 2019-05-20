@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<link rel='stylesheet' href='/stylesheets/style.css' />
+<head>
+    <title>Stadium - Add</title>
+</head>
+<body>
+<h1>Add New Stadium</h1>
+<form action="/stadium/insert" method="get">
+    Team Name:
+    <select name="team_name">
+        <% for (var i = 0; i < team_result.length; i++) { %>
+        <option value="<%= team_result[i].team_name %>">
+            <%= team_result[i].team_name %>
+        </option>
+        <% } %>
+    </select>
+    <br>
+    Address: <input name="address">
+    <br>
+    Stadium Name: <input name="stadium_name">
+    <br>
+    <input type="submit">
+</form>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<link rel='stylesheet' href='/stylesheets/style.css' />
+<head>
+    <title>Game - Add</title>
+</head>
+<body>
+<h1>Add New Game</h1>
+<form action="/game/insert" method="get">
+    Home Team:
+    <select name="stadium_id">
+        <% for (var i = 0; i < stadium_result.length; i++) { %>
+        <option value="<%= stadium_result[i].stadium_id %>">
+            <%= stadium_result[i].team_name %>
+        </option>
+        <% } %>
+    </select>
+    <br>
+    Date/Time(yyyy-mm-dd hh:mm:ss) : <input name="date_time">
+    <br>
+    Runs Home: <input name="runs_home">
+    <br>
+    Runs Away: <input name="runs_away">
+    <br>
+    <input type="submit">
+</form>
+</body>
+</html>

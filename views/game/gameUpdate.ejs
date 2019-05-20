@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Game - Update</title>
+</head>
+<body>
+<h1>Update Game</h1>
+<form action="/game/update" method="get">
+    <input type="hidden" id="stadium_id" name="stadium_id" value="<%= game.stadium_id %>">
+   <input type="hidden" id="date_time" name="date_time" value="<%= game.date_time %>">
+
+    Runs Home: <input name="runs_home" value="<%= game.runs_home %>">
+    <br>
+    Runs Away: <input name="runs_away" value="<%= game.runs_away %>">
+    <br>
+    <input type="submit">
+</form>
+</body>
+<link rel='stylesheet' href='/stylesheets/style.css' />
+</html>

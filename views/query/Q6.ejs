@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<link rel='stylesheet' href='/stylesheets/style.css' />
+<head>
+    <title>Query 6</title>
+</head>
+<body>
+<a href="../">Home</a> |
+<a href="./Q1">Query 1</a> |
+<a href="./Q2">Query 2</a> |
+<a href="./Q3">Query 3</a> |
+<a href="./Q4">Query 4</a> |
+<a href="./Q5">Query 5</a> |
+<a href="">Query 6</a> |
+<a href="./Q7">Query 7</a> |
+<a href="./Q8">Query 8</a> |
+<a href="./Q9">Query 9</a> |
+<a href="./Q10">Query 10</a>
+
+<h1>Query 6</h1>
+
+<p>
+    -- Shows how many games a team has played
+    <br>SELECT tg.team_name, COUNT(tg.home_away) AS gameCount FROM team_game tg
+    <br>GROUP BY tg.team_name;
+</p>
+
+<table border="1">
+    <tr>
+        <th>Team</th>
+        <th>Games Played</th>
+    </tr>
+
+    <% for(var i = 0; i < result.length; i++) {%>
+    <tr>
+        <td><%= result[i].team_name %></td>
+        <td><%= result[i].gameCount %></td>
+    </tr>
+    <% } %>
+</table>
+</body>
+</html>

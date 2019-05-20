@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<link rel='stylesheet' href='/stylesheets/style.css' />
+<head>
+    <title>Player - Add Team</title>
+</head>
+<body>
+<h1>Add New Team for Player</h1>
+<form action="/player/associate_team" method="get">
+<input type="hidden" id="player_id" name="player_id" value="<%= player.player_id %>">
+    Team:
+    <select name="team_name">
+        <% for (var i = 0; i < team_results.length; i++){%>
+        <option value="<%= team_results[i].team_name %>">
+            <%= team_results[i].team_name %>
+        </option>
+        <% } %>
+    </select>
+    <br>
+    Jersey Number: <input name="jersy_number">
+    <br>
+    Start Date (yyyy-mm-dd hh:mm): <input name="start_date">
+    <br>
+    End Date (yyyy-mm-dd hh:mm): <input name="end_date">
+    <br>
+    <input type="submit">
+</form>
+</body>
+</html>

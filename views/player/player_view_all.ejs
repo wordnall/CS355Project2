@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<link rel='stylesheet' href='/stylesheets/style.css' />
+<head>
+    <title>Player - View All</title>
+</head>
+<body>
+<a href="../">Home</a> |
+<a href="../team/all">Teams</a> |
+<a href="../stadium/all">Stadiums</a> |
+<a href="">Players</a> |
+<a href="../game/all">Games</a>
+<h1>Players</h1>
+
+<% if(locals.was_successful) { %>
+<div class="col-md-12">
+    <div id="message" class="alert alert-success col-md-4">
+        Player ID <%= player_id %> was successfully deleted.
+        <br>
+    </div>
+</div>
+<% }else{ %>
+<div class="col-md-12">
+    <div id="message" class="alert alert-danger col-md-4">
+        Failed to delete player ID <%= player_id %>.
+        <br>
+    </div>
+</div>
+<% } %>
+
+<a href="/player/add"> Add New Player</a>
+<br>
+<a href="/player/stats">View Player Stats</a>
+<br>
+
+<table border="1">
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Bats</th>
+        <th>Throws</th>
+        <th>Add Team</th>
+        <th>Add Position</th>
+        <th>Actions</th>
+    </tr>
+
+    <% for(var i =0; i < players.length; i++) {%>
+    <tr>
+        <td><%= players[i].first_name %></td>
+        <td><%= players[i].last_name %></td>
+        <td><%= players[i].bats %></td>
+        <td><%= players[i].throws %></td>
+        <td>
+            <a href="/player/add_team/?player_id=<%= players[i].player_id %>">
+                Add
+            </a>
+        </td>
+        <td>
+            <a href="/player/add_position/?player_id=<%= players[i].player_id %>">
+                Add
+            </a>
+        </td>
+        <td>
+            <a href="/player/edit/?player_id=<%= players[i].player_id %>">
+                Edit
+            </a>
+            <a href="/player/delete/?player_id=<%= players[i].player_id %>">
+                Delete
+            </a>
+        </td>
+    </tr>
+    <% } %>
+</table>
+</body>
+</html>

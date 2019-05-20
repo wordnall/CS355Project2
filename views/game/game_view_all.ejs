@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<link rel='stylesheet' href='/stylesheets/style.css' />
+<head>
+    <title>Game - View All</title>
+</head>
+<body>
+<a href="../">Home</a> |
+<a href="../team/all">Teams</a> |
+<a href="../stadium/all">Stadiums</a> |
+<a href="../player/all">Players</a> |
+<a href="">Games</a>
+
+<h1>Games</h1>
+
+<% if(locals.was_successful) { %>
+<div class="col-md-12">
+    <div id="message" class="alert alert-success col-md-4">
+        Game at stadium ID <%= stadium_id %> on <%= date_time %> was successfully deleted.
+        <br>
+    </div>
+</div>
+<% }else{ %>
+<div class="col-md-12">
+    <div id="message" class="alert alert-danger col-md-4">
+        Failed to delete game at stadium ID <%=  stadium_id %> on <%= date_time %>.
+        <br>
+    </div>
+</div>
+<% } %>
+
+<a href="/game/add"> Add New Game</a>
+<br>
+<table border="1">
+    <tr>
+        <th>Stadium ID</th>
+        <th>Date/Time</th>
+        <th>Runs Home</th>
+        <th>Runs Away</th>
+        <th>Add Team</th>
+        <th>Add Player</th>
+        <th>Actions</th>
+    </tr>
+
+    <% for(var i =0; i < games.length; i++) {%>
+    <tr>
+        <td><%= games[i].stadium_id %></td>
+        <td><%= games[i].date_time %></td>
+        <td><%= games[i].runs_home %></td>
+        <td><%= games[i].runs_away %></td>
+        <td>
+            <a href="/game/add_team/?stadium_id=<%= games[i].stadium_id%>&date_time=<%= games[i].date_time%>">
+                Add
+            </a>
+        </td>
+        <td>
+            <a href="/game/add_player/?stadium_id=<%= games[i].stadium_id%>&date_time=<%= games[i].date_time%>">
+                Add
+            </a>
+        </td>
+        <td>
+            <a href="/game/edit/?stadium_id=<%= games[i].stadium_id %>&date_time=<%= games[i].date_time %>">
+                Edit
+            </a>
+            <a href="/game/delete/?stadium_id=<%= games[i].stadium_id %>&date_time=<%= games[i].date_time %>">
+                Delete
+            </a>
+        </td>
+    </tr>
+    <% } %>
+</table>
+</body>
+</html>

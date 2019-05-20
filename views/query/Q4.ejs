@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<link rel='stylesheet' href='/stylesheets/style.css' />
+<head>
+    <title>Query 4</title>
+</head>
+<body>
+<a href="../">Home</a> |
+<a href="./Q1">Query 1</a> |
+<a href="./Q2">Query 2</a> |
+<a href="./Q3">Query 3</a> |
+<a href="">Query 4</a> |
+<a href="./Q5">Query 5</a> |
+<a href="./Q6">Query 6</a> |
+<a href="./Q7">Query 7</a> |
+<a href="./Q8">Query 8</a> |
+<a href="./Q9">Query 9</a> |
+<a href="./Q10">Query 10</a>
+
+<h1>Query 4</h1>
+
+<p>
+    -- returns players without a position
+    <br>SELECT p.first_name, p.last_name FROM player p
+    <br>WHERE NOT EXISTS (SELECT * FROM position po WHERE p.player_id = po.player_id);
+
+</p>
+
+<table border="1">
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+    </tr>
+
+    <% for(var i = 0; i < result.length; i++) {%>
+    <tr>
+        <td><%= result[i].first_name %></td>
+        <td><%= result[i].last_name %></td>
+    </tr>
+    <% } %>
+</table>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<link rel='stylesheet' href='/stylesheets/style.css' />
+<head>
+    <title>Stadium - Update</title>
+</head>
+<body>
+<h1>Update Stadium</h1>
+
+<form action="/stadium/update" method="get">
+    <input type="hidden" id="stadium_id" name="stadium_id" value="<%= stadium.stadium_id %>">
+    Team Name:
+    <select name="team_name">
+        <% for (var i = 0; i < team_result.length; i++) {
+        var selected = '';
+
+        if(team_result[i].team_name == stadium.team_name) {
+            selected = 'selected';
+        } %>
+        <option value="<%= team_result[i].team_name %>" <%= selected %>>
+            <%= team_result[i].team_name %>
+        </option>
+        <% } %>
+    </select>
+    <br>
+    Address: <input id="address" name="address" value="<%= stadium.address %>">
+    <br>
+    Stadium Name: <input id="stadium_name" name="stadium_name" value="<%= stadium.stadium_name%>">
+    <br>
+    <input type="submit">
+</form>
+</body>
+</html>

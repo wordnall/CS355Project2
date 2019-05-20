@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<link rel='stylesheet' href='/stylesheets/style.css' />
+<head>
+    <title>Player Game - Add Player</title>
+</head>
+<body>
+<h1>Add Player for Game</h1>
+<form action="/game/associate_player" method="get">
+    <input type="hidden" id="stadium_id" name="stadium_id" value="1<%#= game.stadium_id %>">
+    <input type="hidden" id="date_time" name="date_time" value="2013-1-1 12:00<%#= game.date_time %>">
+    Player:
+    <select name="player_id">
+        <% for (var i = 0; i < players.length; i++) {%>
+        <option value="<%= players[i].player_id %>">
+            <%= players[i].first_name + ' ' + players[i].last_name%>
+        </option>
+        <% } %>
+    </select>
+    <br>
+    At Bats: <input name="at_bats">
+    <br>
+    Hits: <input name="hits">
+    <br>
+    Runs: <input name="runs">
+    <br>
+    RBI: <input name="rbi">
+    <br>
+    <input type="submit">
+</form>
+</body>
+</html>

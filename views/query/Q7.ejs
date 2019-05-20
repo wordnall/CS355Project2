@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<link rel='stylesheet' href='/stylesheets/style.css' />
+<head>
+    <title>Query 7</title>
+</head>
+<body>
+<a href="../">Home</a> |
+<a href="./Q1">Query 1</a> |
+<a href="./Q2">Query 2</a> |
+<a href="./Q3">Query 3</a> |
+<a href="./Q4">Query 4</a> |
+<a href="./Q5">Query 5</a> |
+<a href="./Q6">Query 6</a> |
+<a href="">Query 7</a> |
+<a href="./Q8">Query 8</a> |
+<a href="./Q9">Query 9</a> |
+<a href="./Q10">Query 10</a>
+
+<h1>Query 7</h1>
+
+<p>
+    -- Career stat totals for players with at least 1 hit
+    <br>SELECT p.first_name, p.last_name, SUM(s.at_bats) AB, SUM(s.hits) H, SUM(s.runs) R, SUM(s.rbi) RBI FROM player p
+    <br>JOIN (SELECT * FROM player_game pg) s on s.player_id = p.player_id
+    <br>GROUP BY p.player_id
+    <br>HAVING SUM(s.hits) > 1
+    <br>ORDER BY p.last_name, p.first_name;
+</p>
+
+<table border="1">
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>At Bats</th>
+        <th>Hits</th>
+        <th>Runs</th>
+        <th>RBI</th>
+    </tr>
+
+    <% for(var i = 0; i < result.length; i++) {%>
+    <tr>
+        <td><%= result[i].first_name %></td>
+        <td><%= result[i].last_name %></td>
+        <td><%= result[i].AB %></td>
+        <td><%= result[i].H %></td>
+        <td><%= result[i].R %></td>
+        <td><%= result[i].RBI %></td>
+    </tr>
+    <% } %>
+</table>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<link rel='stylesheet' href='/stylesheets/style.css' />
+<head>
+    <title>Player - View All Stat Totals</title>
+</head>
+<body>
+<h1>Players</h1>
+
+
+<table border="1">
+    <tr>
+        <th>Team</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Bats</th>
+        <th>Throws</th>
+        <th>Games Played</th>
+        <th>AB</th>
+        <th>R</th>
+        <th>H</th>
+        <th>AVG</th>
+        <th>RBI</th>
+    </tr>
+
+    <% for(var i =0; i < players.length; i++) {%>
+    <tr>
+        <td><%= players[i].Team%></td>
+        <td><%= players[i].first_name %></td>
+        <td><%= players[i].last_name %></td>
+        <td><%= players[i].bats %></td>
+        <td><%= players[i].throws %></td>
+        <td><%= players[i].Games_Played%></td>
+        <td><%= players[i].AB %></td>
+        <td><%= players[i].R %></td>
+        <td><%= players[i].H %></td>
+        <td><%= players[i].AVG %></td>
+        <td><%= players[i].RBI %></td>
+    </tr>
+    <% } %>
+</table>
+</body>
+</html>

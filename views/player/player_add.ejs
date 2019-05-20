@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<link rel='stylesheet' href='/stylesheets/style.css' />
+<head>
+    <title>Player - Add</title>
+</head>
+<body>
+<h1>Add New Player</h1>
+<form action="/player/insert" method="get">
+    First Name: <input name="first_name">
+    <br>
+    Last Name: <input name="last_name">
+    <br>
+    Bats:
+    <select name="bats">
+        <option value="Right"> Right </option>
+        <option value="Left"> Left </option>
+        <option value="Switch"> Switch </option>
+    </select>
+    <br>
+    Throws:
+    <select name="throws">
+        <option value="Right"> Right </option>
+        <option value="Left"> Left </option>
+        <option value="Switch"> Switch </option>
+    </select>
+    <br>
+    <input type="submit">
+</form>
+</body>
+</html>

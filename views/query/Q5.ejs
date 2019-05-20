@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<link rel='stylesheet' href='/stylesheets/style.css' />
+<head>
+    <title>Query 5</title>
+</head>
+<body>
+<a href="../">Home</a> |
+<a href="./Q1">Query 1</a> |
+<a href="./Q2">Query 2</a> |
+<a href="./Q3">Query 3</a> |
+<a href="./Q4">Query 4</a> |
+<a href="">Query 5</a> |
+<a href="./Q6">Query 6</a> |
+<a href="./Q7">Query 7</a> |
+<a href="./Q8">Query 8</a> |
+<a href="./Q9">Query 9</a> |
+<a href="./Q10">Query 10</a>
+
+<h1>Query 5</h1>
+
+<p>
+    -- returns game data from games played at AT&T Park (stadium ID = 1)
+    <br>SELECT g.stadium_id, g.date_time, g.runs_home, g.runs_away  FROM game g
+    <br>WHERE g.stadium_id = (SELECT s.stadium_id FROM stadium s WHERE s.stadium_name = 'AT&T Park');
+</p>
+
+<table border="1">
+    <tr>
+        <th>Stadium ID</th>
+        <th>Date</th>
+        <th>Runs Home</th>
+        <th>Runs Away</th>
+    </tr>
+
+    <% for(var i = 0; i < result.length; i++) {%>
+    <tr>
+        <td><%= result[i].stadium_id %></td>
+        <td><%= result[i].date_time %></td>
+        <td><%= result[i].runs_home %></td>
+        <td><%= result[i].runs_away %></td>
+    </tr>
+    <% } %>
+</table>
+</body>
+</html>
